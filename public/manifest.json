@@ -1,0 +1,11 @@
+{
+  "short_name": "KRYVO",
+  "name": "KRYVO — Luxury Finance",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#171b19",
+  "theme_color": "#171b19",
+  "description": "Gestão financeira pessoal."
+}

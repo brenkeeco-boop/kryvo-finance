@@ -1,0 +1,336 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --kryvo-bg: #080d18;
+  --kryvo-panel: #101a2a;
+  --kryvo-panel-raised: #142136;
+  --kryvo-border: #24344d;
+  --kryvo-text: #e8eef8;
+  --kryvo-muted: #8796ad;
+  --kryvo-accent: #42a5f5;
+}
+
+html { background: var(--kryvo-bg); }
+body {
+  @apply antialiased;
+  margin: 0;
+  min-height: 100vh;
+  background: var(--kryvo-bg);
+  color: var(--kryvo-text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: -0.012em;
+}
+
+/* Superfícies principais */
+.dark .bg-slate-950 { background-color: var(--kryvo-bg) !important; }
+.dark .bg-slate-900,
+.dark .bg-slate-900\/60,
+.dark .bg-slate-900\/80 { background-color: var(--kryvo-panel) !important; }
+.dark .bg-slate-800,
+.dark .bg-slate-800\/80,
+.dark .bg-slate-800\/50,
+.dark .bg-slate-800\/40,
+.dark .bg-slate-800\/30 { background-color: #17243a !important; }
+.dark .border-slate-800,
+.dark .border-slate-800\/80,
+.dark .border-slate-700,
+.dark .border-slate-700\/50 { border-color: var(--kryvo-border) !important; }
+.dark .text-slate-100 { color: #f2f6fc !important; }
+.dark .text-slate-200 { color: #dce6f3 !important; }
+.dark .text-slate-300 { color: #b8c5d8 !important; }
+.dark .text-slate-400 { color: #91a1b8 !important; }
+.dark .text-slate-500 { color: var(--kryvo-muted) !important; }
+
+/* Cards: menos brilho, mais contraste e acabamento executivo */
+.dark [class*="rounded-2xl"][class*="bg-white"],
+.dark [class*="rounded-2xl"][class*="bg-slate-900"] {
+  border-color: var(--kryvo-border) !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .16);
+}
+.dark [class*="rounded-xl"][class*="border"] { border-color: var(--kryvo-border); }
+
+/* Azul tecnológico como cor de ação */
+.dark .bg-indigo-600 { background-color: #1677d2 !important; }
+.dark .hover\:bg-indigo-500:hover { background-color: #2589e5 !important; }
+.dark .text-indigo-400,
+.dark .text-indigo-500 { color: #63b5ff !important; }
+.dark .bg-indigo-500\/10,
+.dark .bg-indigo-600\/10 { background-color: rgba(48, 137, 220, .14) !important; }
+.dark .border-indigo-500 { border-color: #287fc4 !important; }
+
+/* Inputs e controles */
+.dark input, .dark select, .dark textarea {
+  color: #e8eef8;
+  background-color: #0c1524;
+  border-color: var(--kryvo-border);
+}
+.dark input::placeholder, .dark textarea::placeholder { color: #71819a; }
+.dark button { transition: background-color .18s ease, border-color .18s ease, transform .18s ease; }
+.dark button:focus-visible, .dark a:focus-visible, .dark input:focus-visible, .dark select:focus-visible, .dark textarea:focus-visible {
+  outline: 2px solid #42a5f5;
+  outline-offset: 2px;
+}
+
+/* Dashboard objetivo: quatro indicadores essenciais; os demais continuam acessíveis nos módulos. */
+.dashboard-primary-metrics > :nth-child(n+5) { display: none; }
+.dashboard-primary-metrics > * { min-height: 132px; }
+
+/* Cabeçalhos e navegação */
+.dark aside { background: #0b1422 !important; border-color: #1e2c42 !important; }
+.dark header { background: rgba(11, 20, 34, .94) !important; border-color: #1e2c42 !important; }
+.dark nav a { border-radius: 10px; }
+.dark nav a[aria-current="page"] {
+  background: rgba(48, 137, 220, .14) !important;
+  color: #79c0ff !important;
+  box-shadow: inset 2px 0 0 #42a5f5;
+}
+
+/* Scrollbar discreta */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #30415b; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #49617f; }
+
+/* KRYVO / executive interface refresh */
+:root {
+  color-scheme: dark;
+  --kryvo-bg: #090e16;
+  --kryvo-panel: #101925;
+  --kryvo-panel-raised: #151f2d;
+  --kryvo-border: #243243;
+  --kryvo-text: #e7edf5;
+  --kryvo-muted: #8492a5;
+  --kryvo-accent: #63a9f5;
+  --kryvo-accent-soft: rgba(99,169,245,.12);
+}
+
+html, body { background: var(--kryvo-bg) !important; }
+body { color: var(--kryvo-text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: -.018em; }
+#root { min-height: 100vh; background: var(--kryvo-bg); }
+
+/* Remove the generic purple/gradient look and establish a restrained palette. */
+.dark .bg-indigo-600, .dark .bg-indigo-500 { background-color: #397fc3 !important; }
+.dark .hover\:bg-indigo-500:hover { background-color: #478fd2 !important; }
+.dark .text-indigo-400, .dark .text-indigo-500, .dark .text-indigo-600 { color: #79b9f5 !important; }
+.dark .bg-indigo-500\/10, .dark .bg-indigo-600\/10 { background-color: var(--kryvo-accent-soft) !important; }
+.dark .border-indigo-500 { border-color: #397fc3 !important; }
+.dark .bg-purple-500, .dark .text-purple-500, .dark .text-purple-400 { color: #8ba9c9 !important; }
+
+.kryvo-sidebar { width: 238px !important; padding: 22px 14px !important; background: #0c131e !important; border-color: #202d3c !important; backdrop-filter: none !important; }
+.kryvo-brand { padding: 2px 10px 24px !important; margin-bottom: 16px !important; border-bottom: 1px solid #202d3c; }
+.kryvo-brand-mark { width: 34px !important; height: 34px !important; border-radius: 9px !important; background: #1c3854 !important; box-shadow: none !important; }
+.kryvo-brand h1 { color: #edf3fa !important; font-size: 17px !important; letter-spacing: .16em !important; }
+.kryvo-brand p { color: #71839a !important; letter-spacing: .18em !important; font-size: 9px !important; }
+.kryvo-profile { background: #111c29 !important; border: 1px solid #263649 !important; border-radius: 10px !important; padding: 12px !important; margin-bottom: 16px !important; }
+.kryvo-profile button { color: #8dbdf0 !important; }
+.kryvo-primary-action { background: #2e6fa9 !important; border: 1px solid #4387c3 !important; border-radius: 9px !important; box-shadow: none !important; font-size: 12px !important; letter-spacing: .01em; }
+.kryvo-primary-action:hover { background: #397fb9 !important; }
+.kryvo-navigation { padding: 4px 0; }
+.kryvo-navigation a { min-height: 38px; padding: 9px 11px !important; border-radius: 7px !important; color: #91a0b2 !important; font-size: 12px !important; font-weight: 500 !important; }
+.kryvo-navigation a:hover { background: #152130 !important; color: #e4edf7 !important; }
+.kryvo-navigation a[aria-current="page"] { color: #a9d1fa !important; background: #14283c !important; box-shadow: inset 2px 0 0 #65a9e8 !important; }
+.kryvo-navigation a svg { width: 16px; height: 16px; opacity: .82; }
+.kryvo-main { max-width: 1540px !important; padding: 34px 42px !important; }
+
+.kryvo-dashboard { gap: 22px !important; }
+.kryvo-dashboard-header { padding: 0 0 18px !important; background: transparent !important; border: 0 !important; border-bottom: 1px solid #202d3c !important; border-radius: 0 !important; box-shadow: none !important; backdrop-filter: none !important; }
+.kryvo-dashboard-header h2 { font-size: 25px !important; font-weight: 620 !important; letter-spacing: -.045em !important; color: #f0f4f9 !important; }
+.kryvo-dashboard-header p { margin-top: 5px; color: #8291a4 !important; font-size: 12px !important; }
+.kryvo-dashboard-header > div:last-child { background: #111c29 !important; border: 1px solid #263649 !important; border-radius: 8px !important; }
+.kryvo-dashboard-header button { color: #9aacc0 !important; }
+.kryvo-dashboard-header button:hover { background: #1a2a3c !important; }
+
+.dashboard-primary-metrics { gap: 12px !important; }
+.dashboard-primary-metrics > * { min-height: 116px !important; }
+.kryvo-metric-card { padding: 17px 18px !important; background: #101925 !important; border: 1px solid #253446 !important; border-radius: 10px !important; box-shadow: none !important; }
+.kryvo-metric-card span { font-size: 10px !important; letter-spacing: .075em !important; color: #91a0b2 !important; }
+.kryvo-metric-card p { margin-top: 14px !important; font-size: 24px !important; font-weight: 620 !important; letter-spacing: -.04em !important; }
+.kryvo-metric-card > div:first-child svg { width: 17px; height: 17px; opacity: .8; }
+.kryvo-balance-card { background: #14263a !important; border-color: #315373 !important; position: relative; }
+.kryvo-balance-card span, .kryvo-balance-card p:last-child { color: #9bb9d6 !important; }
+.kryvo-balance-card p:nth-of-type(1) { color: #f2f7fc !important; font-size: 27px !important; }
+.kryvo-balance-card svg { color: #8fc5f5 !important; }
+
+.kryvo-panel { background: #101925 !important; border: 1px solid #253446 !important; border-radius: 10px !important; box-shadow: none !important; padding: 20px !important; }
+.kryvo-panel h3 { color: #e7edf5 !important; font-size: 13px !important; font-weight: 600 !important; letter-spacing: -.01em !important; }
+.kryvo-panel .rounded-xl { border-radius: 7px !important; }
+.kryvo-panel .bg-slate-800\/40 { background: #152130 !important; }
+.kryvo-panel .h-4 { height: 7px !important; }
+.kryvo-panel .bg-emerald-500 { background: #3e9b83 !important; }
+.kryvo-panel .bg-rose-500 { background: #b96b73 !important; }
+.kryvo-panel .bg-indigo-500 { background: #548fc7 !important; }
+
+/* Keep secondary data available in its own modules, not competing on the home screen. */
+.dashboard-primary-metrics > :nth-child(n+5) { display: none !important; }
+.kryvo-dashboard .grid.grid-cols-1.lg\:grid-cols-3 { grid-template-columns: minmax(0, 1.6fr) minmax(280px, .9fr); gap: 14px !important; }
+.kryvo-dashboard .grid.grid-cols-1.lg\:grid-cols-2 { gap: 14px !important; }
+.kryvo-dashboard .space-y-3 > div { border-radius: 8px !important; }
+.kryvo-dashboard .text-xs { letter-spacing: .005em; }
+
+/* Inputs, tables and dialogs share the same restrained surface language. */
+.dark input, .dark select, .dark textarea { background: #0c1520 !important; border-color: #2a3a4d !important; border-radius: 7px !important; }
+.dark button { transition: background-color .16s ease, border-color .16s ease, color .16s ease; }
+.dark [class*="rounded-2xl"] { border-radius: 10px !important; }
+.dark [class*="shadow-lg"], .dark [class*="shadow-xl"], .dark [class*="shadow-2xl"] { box-shadow: 0 18px 45px rgba(0,0,0,.24) !important; }
+::-webkit-scrollbar-thumb { background: #34475d; }
+
+@media (max-width: 1023px) {
+  .kryvo-main { padding: 22px 18px !important; }
+  .kryvo-dashboard-header { align-items: flex-start; }
+  .kryvo-dashboard .grid.grid-cols-1.lg\:grid-cols-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .kryvo-main { padding: 18px 14px !important; }
+  .kryvo-dashboard-header h2 { font-size: 22px !important; }
+  .dashboard-primary-metrics > * { min-height: 100px !important; }
+  .kryvo-metric-card p { font-size: 21px !important; }
+}
+/* Home screen: prioritize cash position, monthly result and due dates. */
+.kryvo-dashboard .grid.grid-cols-1.lg\:grid-cols-3 { grid-template-columns: minmax(0, 1fr) !important; }
+.kryvo-dashboard .grid.grid-cols-1.lg\:grid-cols-3 > div:nth-child(1) { grid-column: 1 / -1 !important; }
+.kryvo-dashboard .grid.grid-cols-1.lg\:grid-cols-3 > div:nth-child(2) { display: none !important; }
+
+/* Typography repair: prevent compressed/overlapping glyphs across the app. */
+html, body, #root {
+  line-height: 1.5 !important;
+  letter-spacing: normal !important;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body, button, input, select, textarea {
+  font-family: "Segoe UI", Arial, sans-serif !important;
+  font-stretch: normal;
+}
+#root :where(h1, h2, h3, h4, h5, h6, p, span, label, a, button, th, td, li, small, strong, em) {
+  line-height: 1.45 !important;
+  letter-spacing: normal !important;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+#root :where(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.2 !important;
+  font-weight: 600;
+}
+#root :where(button, input, select, textarea) {
+  line-height: 1.35 !important;
+}
+#root :where(.text-\[10px\], .text-\[11px\], .text-xs) {
+  line-height: 1.4 !important;
+}
+#root :where(.kryvo-brand h1, .kryvo-brand p) {
+  letter-spacing: .08em !important;
+}
+
+/* KRYVO Luxury Finance — final visual system */
+:root {
+  color-scheme: dark;
+  --kryvo-bg: #171b19;
+  --kryvo-panel: rgba(34, 42, 37, .72);
+  --kryvo-panel-solid: #202722;
+  --kryvo-border: rgba(191, 211, 198, .12);
+  --kryvo-text: #f0f4f1;
+  --kryvo-muted: #9aa79f;
+  --kryvo-green: #4ec58b;
+  --kryvo-green-soft: rgba(78, 197, 139, .13);
+}
+html, body, #root { min-height: 100%; background: var(--kryvo-bg) !important; }
+body { color: var(--kryvo-text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important; font-size: 14px; line-height: 1.5 !important; letter-spacing: 0 !important; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+#root :where(h1,h2,h3,h4,h5,h6,p,span,label,a,button,th,td,li,small,strong) { line-height: 1.45 !important; overflow-wrap: normal; word-break: normal; }
+#root :where(h1,h2,h3,h4,h5,h6) { line-height: 1.2 !important; letter-spacing: -.025em !important; }
+button, input, select, textarea { font: inherit; }
+.kryvo-shell { background: radial-gradient(ellipse at 82% 0%, rgba(65, 105, 80, .10), transparent 35%), #171b19; }
+.kryvo-sidebar { width: 76px !important; flex: 0 0 76px; padding: 18px 0 12px !important; background: rgba(20, 25, 22, .92) !important; border-right: 1px solid var(--kryvo-border) !important; backdrop-filter: blur(18px); transition: width .24s ease, flex-basis .24s ease; }
+.kryvo-sidebar.is-expanded { width: 236px !important; flex-basis: 236px; }
+.kryvo-brand { min-height: 48px; margin: 0 12px 20px; padding: 0 2px 14px; border-bottom: 1px solid var(--kryvo-border); }
+.kryvo-brand-mark { color: #c5f3d8; background: linear-gradient(145deg, #285d43, #1b3428); border: 1px solid rgba(111, 207, 154, .25); box-shadow: 0 8px 24px rgba(22, 80, 49, .2); }
+.kryvo-brand h1 { margin: 0; color: #f2f6f3; font-size: 17px; font-weight: 700; letter-spacing: .17em !important; }
+.kryvo-brand p { margin: 1px 0 0; color: #7e9285; font-size: 9px; letter-spacing: .22em !important; }
+.kryvo-icon-button, .kryvo-sidebar-expand { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 10px; color: #8f9d94; transition: .2s ease; }
+.kryvo-icon-button:hover, .kryvo-sidebar-expand:hover { color: #dff7e9; background: rgba(255,255,255,.06); }
+.kryvo-sidebar-expand { margin: -8px auto 16px; }
+.kryvo-profile { display: flex; align-items: center; gap: 10px; margin: 0 10px 15px; padding: 8px; border: 1px solid var(--kryvo-border); border-radius: 13px; background: rgba(255,255,255,.035); }
+.kryvo-profile.profile-collapsed { justify-content: center; flex-wrap: wrap; margin-left: 8px; margin-right: 8px; padding: 8px 4px; border: 0; background: transparent; }
+.kryvo-avatar { display: flex; width: 34px; height: 34px; flex: 0 0 34px; align-items: center; justify-content: center; border-radius: 11px; color: #c7f2d9; background: #294a37; font-size: 13px; font-weight: 700; }
+.kryvo-new-button { display: inline-flex; min-height: 40px; align-items: center; justify-content: center; gap: 9px; padding: 0 12px; border: 1px solid rgba(107, 211, 153, .28); border-radius: 11px; color: #dff8e9; background: linear-gradient(135deg, #286344, #204b36); box-shadow: 0 8px 20px rgba(23, 89, 52, .16); transition: transform .2s ease, filter .2s ease; }
+.kryvo-new-button:hover { filter: brightness(1.12); transform: translateY(-1px); }
+.kryvo-quick-menu { position: absolute; z-index: 60; top: 48px; left: 10px; width: 210px; padding: 7px; border: 1px solid var(--kryvo-border); border-radius: 13px; background: #222a25; box-shadow: 0 18px 45px rgba(0,0,0,.4); }
+.kryvo-quick-menu.quick-menu-collapsed { left: 60px; top: -2px; }
+.kryvo-quick-menu button { display: flex; width: 100%; align-items: center; gap: 9px; padding: 10px; border-radius: 8px; color: #c2cdc5; text-align: left; font-size: 12px; }
+.kryvo-quick-menu button:hover { color: #e7f8ed; background: rgba(255,255,255,.06); }
+.kryvo-navigation { scrollbar-width: thin; scrollbar-color: #435349 transparent; }
+.kryvo-nav-link { position: relative; display: flex; min-height: 43px; align-items: center; gap: 13px; margin: 3px 0; padding: 0 14px; border-radius: 11px; color: #91a097; font-size: 13px; font-weight: 500; transition: background .2s ease, color .2s ease, transform .2s ease; }
+.kryvo-nav-link.collapsed { justify-content: center; padding: 0; }
+.kryvo-nav-link:hover { color: #e7f3eb; background: rgba(255,255,255,.055); }
+.kryvo-nav-link.active { color: #a5edc2; background: rgba(67, 171, 112, .13); box-shadow: inset 2px 0 0 #58c58b; }
+.kryvo-nav-link.collapsed.active { box-shadow: inset 0 2px 0 #58c58b; }
+.kryvo-nav-badge { margin-left: auto; min-width: 19px; padding: 2px 5px; border-radius: 999px; color: #fff; background: #a94c57; text-align: center; font-size: 10px; }
+.kryvo-main { max-width: 1580px !important; padding: 34px clamp(18px, 3vw, 48px) 48px !important; }
+.kryvo-dashboard { gap: 22px !important; }
+.kryvo-dashboard-header { padding: 0 0 18px !important; border: 0 !important; border-bottom: 1px solid var(--kryvo-border) !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; backdrop-filter: none !important; }
+.kryvo-dashboard-header h2 { color: #f0f5f1 !important; font-size: 26px !important; font-weight: 650 !important; }
+.kryvo-dashboard-header p { display: none; }
+.kryvo-dashboard-header > div:last-child { padding: 4px !important; border: 1px solid var(--kryvo-border) !important; border-radius: 11px !important; background: rgba(255,255,255,.035) !important; }
+.kryvo-dashboard-header button { color: #aab7ae !important; }
+.kryvo-dashboard-header button:hover { background: rgba(255,255,255,.07) !important; }
+.dashboard-primary-metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 13px !important; }
+.dashboard-primary-metrics > * { min-height: 126px !important; }
+.kryvo-metric-card, .kryvo-glass-card { border: 1px solid rgba(205, 225, 211, .11) !important; border-radius: 16px !important; background: linear-gradient(145deg, rgba(54, 66, 58, .58), rgba(35, 43, 38, .58)) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.045), 0 14px 36px rgba(0,0,0,.16) !important; backdrop-filter: blur(18px); }
+.kryvo-metric-card { padding: 19px !important; }
+.kryvo-metric-card span { color: #a4b0a8 !important; font-size: 10px !important; font-weight: 600 !important; letter-spacing: .09em !important; }
+.kryvo-metric-card p { margin-top: 17px !important; color: #f1f5f2 !important; font-size: clamp(20px, 2vw, 27px) !important; font-weight: 650 !important; letter-spacing: -.04em !important; }
+.kryvo-metric-card > div:first-child svg { color: #77d6a0 !important; width: 18px; height: 18px; }
+.kryvo-metric-card > p:last-child { display: none; }
+.kryvo-balance-card { position: relative; overflow: hidden; border-color: rgba(103, 206, 146, .25) !important; background: linear-gradient(145deg, rgba(42, 91, 62, .78), rgba(29, 61, 43, .78)) !important; }
+.kryvo-balance-card span { color: #c0e9ce !important; }
+.kryvo-balance-card p { color: #f4fff7 !important; }
+.kryvo-dashboard .grid.grid-cols-1.lg\:grid-cols-3 { grid-template-columns: minmax(0, 1.55fr) minmax(260px, .85fr) !important; gap: 14px !important; }
+.kryvo-dashboard .grid.grid-cols-1.lg\:grid-cols-3 > div:nth-child(2) { display: flex !important; }
+.kryvo-dashboard .grid.grid-cols-1.lg\:grid-cols-2 { grid-template-columns: minmax(0, 1fr) !important; }
+.kryvo-dashboard .grid.grid-cols-1.lg\:grid-cols-2 > div:first-child { display: none !important; }
+.kryvo-panel { padding: 21px !important; border: 1px solid var(--kryvo-border) !important; border-radius: 16px !important; background: rgba(37, 46, 40, .65) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 14px 32px rgba(0,0,0,.12) !important; backdrop-filter: blur(16px); }
+.kryvo-panel h3 { color: #e7eee9 !important; font-size: 13px !important; font-weight: 600 !important; }
+.kryvo-panel .text-sm { font-size: 12px !important; }
+.kryvo-panel .h-4 { height: 7px !important; }
+.kryvo-panel .bg-emerald-500 { background: #4ec58b !important; }
+.kryvo-panel .bg-rose-500 { background: #bd747b !important; }
+.kryvo-panel .bg-indigo-500 { background: #58a77d !important; }
+.kryvo-page { max-width: 1240px; margin: 0 auto; }
+.kryvo-glass-card { padding: 20px; }
+.kryvo-action-primary { color: #eafff1; border: 1px solid rgba(111, 221, 159, .25); background: linear-gradient(135deg, #286b47, #205238); transition: .2s ease; }
+.kryvo-action-primary:hover { filter: brightness(1.12); transform: translateY(-1px); }
+.kryvo-action-secondary { color: #c0ccc4; border: 1px solid var(--kryvo-border); background: rgba(255,255,255,.045); transition: .2s ease; }
+.kryvo-action-secondary:hover { background: rgba(255,255,255,.09); }
+.kryvo-dialog { border: 1px solid rgba(205,225,211,.15); background: #242d27; box-shadow: 0 24px 80px rgba(0,0,0,.48); }
+.kryvo-field-label { display: block; margin-bottom: 7px; color: #aab7ae; font-size: 11px; font-weight: 600; }
+.kryvo-field { min-height: 43px; padding: 10px 12px; border: 1px solid rgba(205,225,211,.14); border-radius: 10px; color: #edf5ef; background: #1a211d !important; outline: none; }
+.kryvo-field:focus { border-color: rgba(95,204,141,.65); box-shadow: 0 0 0 3px rgba(78,197,139,.1); }
+.dark input, .dark select, .dark textarea { color: #edf5ef; background: #1b231e !important; border-color: rgba(205,225,211,.14) !important; }
+.kryvo-mobile-header { position: sticky; top: 0; z-index: 35; display: flex; min-height: 62px; align-items: center; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid var(--kryvo-border); background: rgba(23,27,25,.92); backdrop-filter: blur(18px); }
+.kryvo-mobile-header strong { color: #f0f6f1; font-size: 14px; letter-spacing: .16em; }
+.kryvo-mobile-header p { color: #91a097; font-size: 10px; }
+.kryvo-mobile-action { display: flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 11px; color: #e8fff0; background: #286342; }
+.kryvo-mobile-nav { position: fixed; z-index: 50; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: repeat(5, 1fr); padding: 8px 5px calc(8px + env(safe-area-inset-bottom)); border-top: 1px solid var(--kryvo-border); background: rgba(24,30,26,.96); backdrop-filter: blur(18px); }
+.kryvo-mobile-nav-item { display: flex; min-width: 0; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 5px 2px; color: #87958c; font-size: 9px; }
+.kryvo-mobile-nav-item.active { color: #8ee0ad; }
+.kryvo-mobile-more { position: fixed; z-index: 49; right: 10px; bottom: calc(72px + env(safe-area-inset-bottom)); left: 10px; max-height: 65vh; overflow-y: auto; padding: 14px; border: 1px solid var(--kryvo-border); border-radius: 17px; background: rgba(35,44,38,.98); box-shadow: 0 20px 55px rgba(0,0,0,.45); backdrop-filter: blur(18px); }
+.kryvo-mobile-more-link { display: flex; align-items: center; gap: 12px; padding: 11px 10px; border-radius: 10px; color: #a7b3aa; font-size: 13px; }
+.kryvo-mobile-more-link.active, .kryvo-mobile-more-link:hover { color: #a5edc2; background: rgba(67,171,112,.13); }
+@media (max-width: 1023px) {
+  .kryvo-main { padding: 22px 18px 100px !important; }
+  .dashboard-primary-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kryvo-dashboard .grid.grid-cols-1.lg\:grid-cols-3 { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 640px) {
+  .kryvo-main { padding: 18px 14px 100px !important; }
+  .kryvo-dashboard-header h2 { font-size: 22px !important; }
+  .dashboard-primary-metrics { gap: 9px !important; }
+  .dashboard-primary-metrics > * { min-height: 105px !important; }
+  .kryvo-metric-card { padding: 14px !important; }
+  .kryvo-metric-card p { margin-top: 12px !important; font-size: 19px !important; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
