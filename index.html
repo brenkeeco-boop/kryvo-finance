@@ -1,6 +1,21 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
+    <script>
+  const redirect = sessionStorage.getItem('kryvo-redirect');
+
+  if (redirect) {
+    sessionStorage.removeItem('kryvo-redirect');
+
+    const data = JSON.parse(redirect);
+
+    history.replaceState(
+      null,
+      '',
+      '/kryvo-finance/' + data.route + data.search + data.hash
+    );
+  }
+</script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/kryvo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
