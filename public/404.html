@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>KRYVO Finance</title>
+    <script>
+      const base = '/kryvo-finance/';
+      const path = window.location.pathname;
+      const route = path.startsWith(base)
+        ? path.slice(base.length)
+        : '';
+
+      sessionStorage.setItem(
+        'kryvo-redirect',
+        JSON.stringify({
+          route,
+          search: window.location.search,
+          hash: window.location.hash
+        })
+      );
+
+      window.location.replace(base);
+    </script>
+  </head>
+  <body></body>
+</html>
